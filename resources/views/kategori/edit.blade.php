@@ -1,38 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+    
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Edit Data Kategori Lembur</div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">update Data Kategori Lembur</div>
+        <div class="panel-body">
+            <form method="POST" action="{{url('kategori')}}">
+                {{csrf_field()}}
 
-                <div class="panel-body">
-                    {!! Form::model($kategori,['method' => 'PATCH','route'=>['kategori.update',$kategori->id]]) !!}
+                    <div class="form-group">
+                    <label>Kode Lembur</label>
+                    <input class="form-control" type="text" name="kode_lembur" placeholder="Kode Lembur ...">
+                    </div>
+      
+                    <div class="control-group">
+                        <label class="control-label">Id Jabatan</label>
+                        <div class="controls">
+                            <select class="form-control" name="id_jabatan">
+                                @foreach ($jabatan as $data)
+                                <option value="{{ $data->id }}">{{ $data->nama_jabatan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Id Golongan</label>
+                        <div class="controls">
+                            <select class="form-control" name="id_golongan">
+                                @foreach ($golongan as $data)
+                                <option value="{{ $data->id }}">{{ $data->nama_golongan }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    
                 <div class="form-group">
-                    {!! Form::label('kode_lembur', 'Kode Lembur') !!}
-                    {!! Form::text('kode_lembur',null,['class'=>'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('$pegawai->User->name', 'Nama Jabatan') !!}
-                    {!! Form::text('$pegawai->User->name',null,['class'=>'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('nama_golongan', 'Nama Golongan') !!}
-                    {!! Form::text('nama_golongan',null,['class'=>'form-control']) !!}
-                </div>
-                <div class="form-group">
-                    {!! Form::label('besaran_uang', 'Besaran uang') !!}
-                    {!! Form::text('besaran_uang',null,['class'=>'form-control']) !!}
+                    <label>Besaran Uang</label>
+                    <input class="form-control" type="text" name="besaran_uang" placeholder="Masukkan Besaran Uang">
                 </div>
 
                 <div class="form-group">
-                    {!! Form::submit('SIMPAN', ['class' => 'btn btn-primary']) !!}
+                    <input class="btn btn-success" type="submit" name="submit" value="simpan perubahan">
                 </div>
-                {!! Form::close() !!}
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
-@endsection
+
+@stop

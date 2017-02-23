@@ -68,7 +68,8 @@ class KategoriController extends Controller
     public function edit($id)
     {
         $kategori=kategori_lembur::find($id);
-        return view('kategori.edit',compact('kategori'));
+        
+        return view('kategori.edit',compact('kategori','golongan','jabatan'));
     }
 
     /**

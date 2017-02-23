@@ -7,20 +7,15 @@
     <div class=""span2>
         </div>
     </div>
+     <body style="background:#FF6699">
 
-        <div class="panel panel-info">
-        <div class="panel-heading"><h1><center><strong>Data Tunjangan</h1></strong></div>
+        <div class="bg-danger">
+        <div class="text-danger"><h1><center><strong>Data Tunjangan</h1></strong></div>
         <div class="panel-body">
-            
-                <form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="btn">Search</button>
-                </p></form>
         <a class="btn btn-success" href="{{url('tunjangan/create')}}">Tambah Data</a><br><br>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
-                    <tr class="bg-primary">
+                    <tr class="bg-warning">
                         <th>Id</th>
                         <th>Kode Tunjangan</th>
                         <th>Nama Jabatan</th>
@@ -51,6 +46,10 @@
                 </tbody>
                 @endforeach
             </table>
+                      <div class="form-group"><center>
+        <form action="{{url('tunjangan')}}/?kode_tunjangan=kode_tunjangan">
+        <input type="text" name="kode_tunjangan" placeholder="Cari"></form>
+        </div>
         </div>
     </div>
 </div>

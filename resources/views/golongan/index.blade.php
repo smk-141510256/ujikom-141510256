@@ -47,11 +47,9 @@
                 @endforeach
             </table>
 
-                <form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="bg-danger">Search</button>
-                </p></form>
+        <div class="form-group"><center>
+        <form action="{{url('golongan')}}/?nama_golongan=nama_golongan">
+        <input type="text" name="nama_golongan" placeholder="Cari"></form>
                 
         </div>
     </div>

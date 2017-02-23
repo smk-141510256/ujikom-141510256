@@ -7,20 +7,16 @@
     <div class=""span2>
         </div>
     </div>
-
-        <div class="panel panel-info">
-        <div class="panel-heading"><h1><center><strong>Data Pegawai</h1></strong></div>
+ <body style="background:#FF6699">
+        <div class="bg-danger">
+        <div class="text-danger"><h1><center><strong>Data Pegawai</h1></strong></div>
         <div class="panel-body">
             
-                <form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="btn">Search</button>
-                </p></form>
+                
         <a class="btn btn-success" href="{{url('pegawai/create')}}">Tambah Data</a><br><br>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
-                    <tr class="bg-primary">
+                    <tr class="bg-warning">
                         <th>Id</th>
                         <th>Nip</th>
                         <th>Nama</th>
@@ -51,6 +47,11 @@
                 </tbody>
                 @endforeach
             </table>
+            <form class="form-search" >
+                    <p class="text-right">
+                    <input type="text" class="input-medium search-query">
+                    <button type="submit" class="btn">Search</button>
+                </p></form>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
 	
 <div class="container">
 	<div class="panel panel-primary">
-		<div class="panel-heading">Tambah Data Tunjangan</div>
+		<div class="panel-heading">Tambggah Data Tunjangan</div>
 		<div class="panel-body">
 			<form method="POST" action="{{url('tunjangan')}}">
 			 	{{csrf_field()}}

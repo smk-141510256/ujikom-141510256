@@ -48,12 +48,10 @@
                     </tr>
                 </tbody>
                 @endforeach
-            </table>
-             <form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="bg-danger">Search</button>
-                </p></form>      
+                </table>
+             <div class="form-group"><center>
+            <form action="{{url('jabatan')}}/?nama_jabatan=nama_jabatan">
+            <input type="text" name="nama_jabatan" placeholder="Cari"></form>   
         </div>
     </div>
 </div>

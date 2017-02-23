@@ -109,8 +109,10 @@ class PegawaiController extends Controller
      */
     public function edit($id)
     {
+         $golongan = golongan::all();
+        $jabatan = jabatan::all();
         $pegawai=pegawai::find($id);
-        return view('pegawai.edit',compact('pegawai'));
+        return view('pegawai.edit',compact('pegawai','jabatan','golongan'));
     }
 
     /**
@@ -122,9 +124,9 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dataUpdate=Request::all();
+        $pegawaiUpdate=Input::all();
         $pegawai=pegawai::find($id);
-        $pegawai->update($dataUpdate);
+        $pegawai->update($pegawaiUpdate);
         return redirect('pegawai');
     }
 

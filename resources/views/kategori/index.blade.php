@@ -46,11 +46,9 @@
                 </tbody>
                 @endforeach
             </table>
-            <center><form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="bg-warning">Search</button>
-                </p></form></center>
+            <div class="form-group"><center>
+        <form action="{{url('kategori')}}/?kode_lembur=kode_lembur">
+        <input type="text" name="kode_lembur" placeholder="Cari"></form>
         </div>
     </div>
 </div>
