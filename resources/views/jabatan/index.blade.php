@@ -15,8 +15,8 @@
         <div class="text-danger"><h1><center><strong>Data Jabatan</h1></strong></div>
         <div class="panel-body">
             
-                 <a class="btn btn-success" href="{{url('jabatan/create')}}">Tambah Data</a><br><br>
-              
+                 <a class="btn btn-primary" href="{{url('jabatan/create')}}">Tambah Data</a><br><br>
+             <a class="btn btn-danger" href="{{url('jabatan')}}"><=Back</a><br><br>
             <table  class="table table-striped table-bordered table-hover">
 
                 <thead>
@@ -51,7 +51,8 @@
                 </table>
              <div class="form-group"><center>
             <form action="{{url('jabatan')}}/?nama_jabatan=nama_jabatan">
-            <input type="text" name="nama_jabatan" placeholder="Cari"></form>   
+            <input type="text" name="nama_jabatan" placeholder="Cari"></form> 
+
         </div>
     </div>
 </div>

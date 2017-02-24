@@ -16,8 +16,10 @@ class LemburpegawaiController extends Controller
      */
     public function index()
     {
-        $lemburpegawai = lembur_pegawai::with('kategori_lembur','pegawai')->get();
-        return view('lemburpegawai.index', compact('lemburpegawai'));
+        $pegawai = pegawai::all();
+        $kategori = kategori_lembur::all();
+        $lemburpegawai = lembur_pegawai::all();
+        return view('lemburpegawai.index', compact('lemburpegawai','kategori','pegawai'));
     }
 
     /**
@@ -43,6 +45,7 @@ class LemburpegawaiController extends Controller
      */
     public function store(Request $request)
     {
+        
         $lemburpegawai=Request::all();
         lembur_pegawai::create($lemburpegawai);
         return redirect('lemburpegawai');
@@ -68,7 +71,7 @@ class LemburpegawaiController extends Controller
     public function edit($id)
     {
         $lemburpegawai=lembur_pegawai::find($id);
-        return view('lemburpegawai.edit',compact('lemburpegawai'));
+        return view('lemburpegawai.edit',compact('lemburpegawai','kategori','pegawai'));
     }
 
     /**
@@ -80,7 +83,7 @@ class LemburpegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dataUpdate=Request::all();
+        $dataUpdate=input::all();
         $lemburpegawai=lembur_pegawai::find($id);
         $lemburpegawai->update($dataUpdate);
         return redirect('lemburpegawai');

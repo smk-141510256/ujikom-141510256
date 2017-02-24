@@ -10,11 +10,11 @@
 			 	{{csrf_field()}}
 
 			 	<div class="form-group">
-					<label>Id Kode Lembur</label>	
+					<label for="kode_lembur_id" class="col-md-4">Id Kode Lembur</label>	
 					<div class="controls">
 				  <select class="form-control" name="kode_lembur_id">
                                 @foreach ($kategori as $data)
-                                <option value="{{ $data->id }}">{{ $data->kode_lembur_id }}</option>
+                                <option value="{{ $data->id }}">{{ $data->kode_lembur }}</option>
                                 @endforeach
                             </select>
 				</div>

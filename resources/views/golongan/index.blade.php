@@ -15,7 +15,8 @@
             
              
 
-        <a class="btn btn-success" href="{{url('golongan/create')}}">Tambah Data</a><br><br>
+        <a class="btn btn-primary" href="{{url('golongan/create')}}">Tambah Data</a
+        ><br><br><a class="btn btn-danger" href="{{url('golongan')}}"><=Back</a><br><br>
             <table class="table table-striped table-bordered table-hover">
 
                 <thead>
@@ -48,8 +49,8 @@
             </table>
 
         <div class="form-group"><center>
-        <form action="{{url('golongan')}}/?nama_golongan=nama_golongan">
-        <input type="text" name="nama_golongan" placeholder="Cari"></form>
+        <form action="{{url('golongan')}}/?kode_golongan=kode_golongan">
+        <input type="text" name="kode_golongan" placeholder="Cari"></form>
                 
         </div>
     </div>

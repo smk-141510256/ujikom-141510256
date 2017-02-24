@@ -8,7 +8,6 @@ use App\pegawai;
 use App\kategori_lembur;
 use Form;
 use Validator;
-use alert;
 use Input;
 use redirect;
 
@@ -24,10 +23,10 @@ class GolonganController extends Controller
         $golongan = golongan::all();
         
 
-        $golongan = golongan::where('nama_golongan', request('nama_golongan'))->paginate(0);
-        if(request()->has('nama_golongan'))
+        $golongan = golongan::where('kode_golongan', request('kode_golongan'))->paginate(0);
+        if(request()->has('kode_golongan'))
         {
-            $golongan=golongan::where('nama_golongan', request('nama_golongan'))->paginate(0);
+            $golongan=golongan::where('kode_golongan', request('kode_golongan'))->paginate(0);
         }
         else
         {
@@ -55,29 +54,25 @@ class GolonganController extends Controller
      */
     public function store(Request $request)
     {
-        $golongan=Request::all();
-        golongan::create($golongan);
-        return redirect('golongan');
-
-        $rules=['kode_golongan'=>'required|unique:golongans',
+         $rules=['kode_golongan'=>'required|unique:golongans',
                 'nama_golongan'=>'required',
-                'besaran_uang'=>'required|numeric'];
-        $sms=['kode_golongan.required'=>'Harus Di Isi',
-                'kode_golongan.unique'=>'Tidak Boleh Sama',
-                'nama_golongan.required'=>'Harus Di Isi',
-                'besaran_uang.required'=>'Harus Diisi',
-                'besaran_uang.numeric'=>'Harus Angka'];
+                'besaran_uang'=>'required|numeric|min:1'];
+        $sms=['kode_golongan.required'=>'Data tidak boleh kosong',
+                'kode_golongan.unique'=>'Data tidak boleh sama:(',
+                'nama_golongan.required'=>'Data tidak boleh kosong',
+                'besaran_uang.required'=>'Data tidak boleh kosong',
+                'besaran_uang.numeric'=>'Hanya angka',
+                'besaran_uang.min'=>'Angka tidak boleh min',
+                ];
         $valid=Validator::make(Input::all(),$rules,$sms);
         if ($valid->fails()) {
-
-            alert()->error('Data Salah');  
             return redirect('golongan/create')
             ->withErrors($valid)
             ->withInput();
         }
         else
         {
-        alert()->success('Data Tersimpan');
+        //alert()->success('Data Tersimpan');
         $golongan=Request::all();
         golongan::create($golongan);
         return redirect('golongan');

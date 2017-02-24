@@ -13,7 +13,8 @@
         <div class="panel-body">
             
                 
-        <a class="btn btn-success" href="{{url('kategori/create')}}">Tambah Data</a><br><br>
+        <a class="btn btn-primary" href="{{url('kategori/create')}}">Tambah Data</a
+        ><br><br><a class="btn btn-danger" href="{{url('kategori')}}"><=Back</a><br><br>
             <table class="table table-striped table-bordered table-hover">
 
                 <thead>

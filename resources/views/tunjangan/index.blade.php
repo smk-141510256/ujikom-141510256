@@ -12,8 +12,8 @@
         <div class="bg-danger">
         <div class="text-danger"><h1><center><strong>Data Tunjangan</h1></strong></div>
         <div class="panel-body">
-        <a class="btn btn-success" href="{{url('tunjangan/create')}}">Tambah Data</a><br><br>
-            <table class="table table-striped table-bordered table-hover">
+        <a class="btn btn-primary" href="{{url('tunjangan/create')}}">Tambah Data</a
+        ><br><br><a class="btn btn-danger" href="{{url('tunjangan')}}"><=Back</a><br><br>            <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr class="bg-warning">
                         <th>Id</th>

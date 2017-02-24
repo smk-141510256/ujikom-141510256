@@ -13,7 +13,8 @@
         <div class="panel-body">
             
                 
-        <a class="btn btn-success" href="{{url('pegawai/create')}}">Tambah Data</a><br><br>
+         <a class="btn btn-primary" href="{{url('pegawai/create')}}">Tambah Data</a
+        ><br><br><a class="btn btn-danger" href="{{url('pegawai')}}"><=Back</a><br><br>
             <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr class="bg-warning">
@@ -47,11 +48,10 @@
                 </tbody>
                 @endforeach
             </table>
-            <form class="form-search" >
-                    <p class="text-right">
-                    <input type="text" class="input-medium search-query">
-                    <button type="submit" class="btn">Search</button>
-                </p></form>
+             <div class="form-group"><center>
+        <form action="{{url('pegawai')}}/?nip=nip">
+        <input type="text" name="nip" placeholder="Cari"></form>
+        </div>
         </div>
     </div>
 </div>

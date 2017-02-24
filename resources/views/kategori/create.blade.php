@@ -9,13 +9,23 @@
 			<form method="POST" action="{{url('kategori')}}">
 			 	{{csrf_field()}}
 
-                    <div class="form-group">
-                    <label>Kode Lembur</label>
-                    <input class="form-control" type="text" name="kode_lembur" placeholder="Kode Lembur ...">
-                    </div>
+                    <div class="control-group{{ $errors->has('kode_lembur') ? ' has-error' : '' }}">
+                            <label for="kode_lembur" class="col-md-4 control-label">kode_lembur</label>
+
+                            <div class="col-md-6">
+                                <input id="besaran_uang" type="text" class="form-control" name="kode_lembur" value="{{ old('kode_lembur') }}" required autofocus>
+
+                                @if ($errors->has('kode_lembur'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('kode_lembur') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <br><br>
       
                     <div class="control-group">
-                        <label class="control-label">Id Jabatan</label>
+                        <label class="control-label">nama Jabatan</label>
                         <div class="controls">
                             <select class="form-control" name="id_jabatan">
                                 @foreach ($jabatan as $data)
@@ -26,7 +36,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Id Golongan</label>
+                        <label class="control-label">nama Golongan</label>
                         <div class="controls">
                             <select class="form-control" name="id_golongan">
                                 @foreach ($golongan as $data)
@@ -36,10 +46,19 @@
                         </div>
                     </div>
                     
-				<div class="form-group">
-					<label>Besaran Uang</label>
-					<input class="form-control" type="text" name="besaran_uang" placeholder="Masukkan Besaran Uang">
-				</div>
+				<div class="form-group{{ $errors->has('besaran_uang') ? ' has-error' : '' }}">
+                            <label for="besaran_uang" class="col-md-4 control-label">besaran_uang</label>
+
+                            <div class="col-md-6">
+                                <input id="besaran_uang" type="text" class="form-control" name="besaran_uang" value="{{ old('besaran_uang') }}" required autofocus>
+
+                                @if ($errors->has('besaran_uang'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('besaran_uang') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
 				<div class="form-group">
 					<input class="btn btn-success" type="submit" name="submit" value="Tambah">

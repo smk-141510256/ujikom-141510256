@@ -29,6 +29,16 @@ class PegawaiController extends Controller
                 $pegawai = pegawai::with('golongan')->get();
                 $pegawai = pegawai::with('User')->get();
                 $pegawai = pegawai::all();
+
+                 $pegawai = pegawai::where('nip', request('nip'))->paginate(0);
+        if(request()->has('nip'))
+        {
+            $pegawai=pegawai::where('nip', request('nip'))->paginate(0);
+        }
+        else
+        {
+            $pegawai=pegawai::paginate(3);
+        }
         return view('pegawai.index',compact('pegawai'));
        
     }

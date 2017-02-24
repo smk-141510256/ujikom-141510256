@@ -24,7 +24,24 @@ class PenggajianController extends Controller
     public function index()
     {
         $penggajian = penggajian::all();
+         $penggajian = penggajian::where('id', request('id'))->paginate(0);
+        if(request()->has('id'))
+        {
+            $penggajian=penggajian::where('id', request('id'))->paginate(0);
+        }
+        else
+        {
+            $penggajian=penggajian::paginate(3);
+        }
         return view ('penggajian.index', compact('penggajian'));
+
+
+
+
+
+
+
+
         //
         //$user = request()->user()->id;
         //$jabatan = DB::select("SELECT jabatans.besaran_uang FROM jabatans");
@@ -56,6 +73,7 @@ class PenggajianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+}
     public function store(Request $request)
     {
         $penggajian = Request::all();

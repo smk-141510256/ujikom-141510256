@@ -11,8 +11,8 @@
                 <thead>
                     <tr class="bg-primary">
                         <th>No</th>
-                        <th>Id Kode Lembour</th>
-                        <th>Id Pegawai</th>
+                        <th>Id Kode Lembur</th>
+                        <th>nama Pegawai</th>
                         <th>Jumlah Jam</th>
                         <th colspan="3"><center>Opsi</th>
                     </tr>
@@ -23,8 +23,8 @@
                 <tbody>
                     <tr> 
                         <td> {{$id++}}</td>
-                        <td> {{$data->kode_lembur_id}} </td>
-                        <td> {{$data->name}}</td>
+                        <td> {{$data->kategori_lembur->kode_lembur}} </td>
+                        <td> {{$data->pegawai->User->name}}</td>
                         <td> {{$data->jumlah_jam}}</td>
                         <td><a href="{{route('lemburpegawai.edit',$data->id)}}" class="btn bg-primary">Edit</a></td>
                        <td ><a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip">Hapus</a>

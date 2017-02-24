@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
 use App\kategori_lembur;
 use App\jabatan;
 use App\golongan;
 use Request;
 use Form;
-
+use Validator;
+use Input;
 class KategoriController extends Controller
 {
     /**
@@ -18,7 +18,18 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori_lembur::with('golongan','jabatan')->get();
+        $kategori = kategori_lembur::all();
+        $golongan = golongan::all();
+        $jabatan = jabatan::all();
+         $kategori = kategori_lembur::where('kode_lembur', request('kode_lembur'))->paginate(0);
+        if(request()->has('kode_lembur'))
+        {
+            $kategori=kategori_lembur::where('kode_lembur', request('kode_lembur'))->paginate(0);
+        }
+        else
+        {
+            $kategori=kategori_lembur::paginate(3);
+        }
         return view ('kategori.index', compact('kategori'));
     }
 
@@ -43,10 +54,27 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
+        $rules=['kode_lembur'=>'required|unique:kategori_lemburs',
+                'besaran_uang'=>'required|numeric|min:1'];
+        $sms=['kode_lembur.required'=>'Data tidak boleh kosong',
+                'kode_lembur.unique'=>'Data tidak boleh sama',
+                'besaran_uang.required'=>'Data tidak boleh kosong',
+                'besaran_uang.numeric'=>'Hanya angka',
+                'besaran_uang.min'=>'Angka tidak boleh min',
+                ];
+        $valid=Validator::make(Input::all(),$rules,$sms);
+        if ($valid->fails()) {
+            return redirect('kategori/create')
+            ->withErrors($valid)
+            ->withInput();
+        }
+        else
+        {
+        //alert()->success('Data Tersimpan');
         $kategori=Request::all();
         kategori_lembur::create($kategori);
         return redirect('kategori');
-    }
+    }}
 
     /**
      * Display the specified resource.
